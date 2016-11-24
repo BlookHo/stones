@@ -5,17 +5,17 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 2.3.1
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation - PG, stones_admin
 
-* Database initialization
+* Database initialization: stones_development, _test, _production
 
-* How to run the test suite
+* How to run the test suite l
 
 * Services (job queues, cache servers, search engines, etc.)
 

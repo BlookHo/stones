@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root 'main#index'
+  root 'main#task'
 
 
 
@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   match 'help',     to: 'main#help',            via: 'get'
   match 'contacts', to: 'main#contacts',        via: 'get'
   match 'task',     to: 'main#task',            via: 'get'
+
+  # main#tasks #
+  match 'task',               to: 'main#task',              via: 'get'
+  match 'task_one',           to: 'main#task_one',          via: 'get'
+  match 'display_wheather',   to: 'main#display_wheather',  via: 'get'
 
 
   # get 'main/index'

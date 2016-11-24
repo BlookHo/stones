@@ -24,6 +24,7 @@
 
     %nav
       %ul.nav.navbar-nav.pull-right
+        %li= link_to 'Task', task_path
         %li= link_to t('.home'), root_path
         %li= link_to t('.help'), help_path
         -#- if signed_in?

@@ -9,15 +9,15 @@
   -#  by
   -#  %a{:href => "http://www.michaelhartl.com/"} Michael Hartl
 
-  %h3{style: "color: #c4f7ff; font-size: 1.3em; position: relative; left: 20%; margin-top: .55em;"}
+  %h3{style: "color: #c4f7ff; font-size: 1.5em; position: relative; left: 20%; margin-top: .55em;"}
     Stones
     %i.fa.fa-copyright.iconsMain{ style: " font-size: 1.3em; " }
     2016
 
-    %p.app_notice_dev{style: " font-size: 1em; position: relative; left: 40%;"}
-      %span{ style: "color: #730E15; font-size: 1.3em; position: relative; left: 11%;" }
+    %p.app_notice_dev{style: " font-size: 1em; position: relative; left: 60%;"}
+      %span{ style: "color: #730E15; font-size: 1.3em; position: relative; left: 11%; top: .5em;" }
         %i.fa.fa-flag.iconsMain{ style: "color: #730E15; font-size: 1em; " }
-          = t('.dev_msg')
+          = 'App is in Development'
 
 
   .footer_menu
@@ -25,7 +25,6 @@
       %ul
         %li= link_to t('.about'), about_path
         %li= link_to t('.contact'), contacts_path
-        %li= link_to 'task', task_path
         -#%li
         -#  %a{:href => "http://news.railstutorial.org/"} News
 
