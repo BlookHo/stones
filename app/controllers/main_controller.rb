@@ -1,7 +1,8 @@
 class MainController < ApplicationController
   require 'json'
 
-  include TaskHelper
+  include WeatherDataProcessing     # task 1
+  include SearchResultsProcessing   # task 2
 
 
   def index
@@ -19,18 +20,35 @@ class MainController < ApplicationController
   def task
   end
 
-
   def task_one
   end
 
-
   def display_wheather
-    obj = ActiveSupport::JSON.decode(params[:cond_wheather])
-    location =  obj['query']['results']['channel']['location']
-    @title = location["city"] + " - " + location["country"] + ", " + location["region"]
-    cond_wheather = obj['query']['results']['channel']['item']['forecast'].to_a
-    @cond_wheather = add_weather_image(cond_wheather)
+    @cond_wheather = []
+    @title = ""
+    unless params[:cond_wheather].blank?
+      @cond_wheather, @title = make_weather_data(params[:cond_wheather])
+    end
   end
+
+  def search_form_jand
+    logger.info "In search_form_jand"
+    # @cond_wheather = []
+    # @title = ""
+    # unless params[:cond_wheather].blank?
+    #   @cond_wheather, @title = make_weather_data(params[:cond_wheather])
+    # end
+  end
+
+
+  def display_search_results
+    # @cond_wheather = []
+    # @title = ""
+    # unless params[:cond_wheather].blank?
+    #   @cond_wheather, @title = make_weather_data(params[:cond_wheather])
+    # end
+  end
+
 
 
 end
