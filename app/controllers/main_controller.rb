@@ -21,9 +21,12 @@ class MainController < ApplicationController
   end
 
   def task_one
+    logger.info "In task_one"
   end
 
   def display_wheather
+    logger.info "In display_wheather"
+
     @cond_wheather = []
     @title = ""
     unless params[:cond_wheather].blank?

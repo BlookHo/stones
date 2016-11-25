@@ -3,7 +3,7 @@ module SearchResultsProcessing
 
   # Task One - Yahoo wheather
 
-  def make_weather_data(cond_wheather)
+  def make_search_data(cond_wheather)
     @search_query = ""
 
 

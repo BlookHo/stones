@@ -4,6 +4,8 @@ module WeatherDataProcessing
   # Task One - Yahoo wheather
 
   def make_weather_data(cond_wheather)
+    logger.info "In make_weather_data"
+
     obj = ActiveSupport::JSON.decode(cond_wheather)
     location =  obj['query']['results']['channel']['location']
     title = location["city"] + " - " + location["country"] + ", " + location["region"]
