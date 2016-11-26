@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   root 'main#task'
 
-
-
   # main
   match 'index',    to: 'main#index',           via: 'get'
   match 'about',    to: 'main#about',           via: 'get'
@@ -15,12 +13,15 @@ Rails.application.routes.draw do
   # main#tasks #
   match 'task',               to: 'main#task',              via: 'get'
 
+  # task 1 #
   match 'task_one',           to: 'main#task_one',          via: 'get'
   match 'display_wheather',   to: 'main#display_wheather',  via: 'get'
 
+  # task 2 #
   match 'search_form_jand',                   to: 'main#search_form_jand',                  via: 'get'
   # match 'task_two/search_form_jand',                 to: 'main#search_form_jand',                via: 'get'
   # match 'task_two/display_search_results',   to: 'main#display_search_results',  via: 'get'
+  match 'store_search_query',   to: 'main#store_search_query',  via: 'get'
 
 
 

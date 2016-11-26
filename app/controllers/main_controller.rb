@@ -1,4 +1,8 @@
 class MainController < ApplicationController
+  # skip_before_filter  :authenticate
+
+
+
   require 'json'
 
   include WeatherDataProcessing     # task 1
@@ -36,11 +40,29 @@ class MainController < ApplicationController
 
   def search_form_jand
     logger.info "In search_form_jand"
-    # @cond_wheather = []
-    # @title = ""
-    # unless params[:cond_wheather].blank?
-    #   @cond_wheather, @title = make_weather_data(params[:cond_wheather])
-    # end
+
+    value = params[:value]
+    logger.info "In search_form_jand: value = #{value} "
+
+    content = params[:content]
+    logger.info "In search_form_jand: content = #{content} "
+
+  end
+
+  def store_search_query
+    query = params[:query]
+    logger.info "In store_search_query: query = #{query} "
+    query_text = "Search query = #{query}"
+    logger.info "In store_search_query: query_text = #{query_text} "
+    respond_to do |format|
+      if query.blank?
+        format.html {  render nothing: true, status: :unprocessable_entity }
+        format.json {}
+      else
+        format.json { render json:  { query_text: query_text,
+                                      notice: 'Successfully listed to next'} }
+      end
+    end
   end
 
 
