@@ -15,15 +15,22 @@
 # gem 'pg'
 #
 default: &default
+  host: localhost
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF8
+  reaping_frequency: 30
+  username: stones_admin
+  timeout: 5000
+  pool: 10 #<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  password: password
+
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: stones_development
+  password: <%= Rails.application.secrets[:database][:password] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +65,7 @@ development:
 test:
   <<: *default
   database: stones_test
+  password: <%= Rails.application.secrets[:database][:password] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,5 +89,4 @@ test:
 production:
   <<: *default
   database: stones_production
-  username: stones
   password: <%= ENV['STONES_DATABASE_PASSWORD'] %>
