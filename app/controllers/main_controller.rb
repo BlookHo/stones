@@ -1,15 +1,13 @@
 class MainController < ApplicationController
   # skip_before_filter  :authenticate
-
-
-
   require 'json'
 
   include WeatherDataProcessing     # task 1
   include SearchResultsProcessing   # task 2
 
-
   def index
+
+
   end
 
   def help

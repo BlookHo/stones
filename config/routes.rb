@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
 
+  # get 'work/choose_image'
+  #
+  # get 'work/choose_theme'
+  #
+  # get 'work/display_theme'
+
   resources :values
   resources :users
   resources :themes
   resources :images
-  root 'main#task'
+
+  root 'work#index'
+
+  # root 'main#task'
 
   # main
   match 'index',    to: 'main#index',           via: 'get'
@@ -13,6 +22,15 @@ Rails.application.routes.draw do
   match 'help',     to: 'main#help',            via: 'get'
   match 'contacts', to: 'main#contacts',        via: 'get'
   match 'task',     to: 'main#task',            via: 'get'
+
+
+  match 'work',             to: 'work#index',                  via: 'get'
+  match 'choose_theme',     to: 'work#choose_theme',      via: :get
+  match 'display_theme',    to: 'work#display_theme',      via: :post
+
+
+
+
 
   # main#tasks #
   match 'task',               to: 'main#task',              via: 'get'
